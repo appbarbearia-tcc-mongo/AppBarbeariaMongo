@@ -31,7 +31,7 @@ public class test {
     @Autowired
     EnderecoRepository enderecoRepository;
 
-    private static Cidade cidade = null;
+    private static Cidade cidadeInserida = null;
 
     @Test
     public void test00_findById(){
@@ -55,13 +55,13 @@ public class test {
         Cidade retornoCidade = cidadeRepository.save(cidade);
         assertNotNull(retornoCidade);
         assertNotNull(retornoCidade.getId());
-        cidade = retornoCidade;
+        cidadeInserida = retornoCidade;
     }
 
     @Test
     public void test03_saveEndereco(){
         Endereco endereco = new Endereco();
-        endereco.setCidade(cidade);
+        endereco.setCidade(cidadeInserida);
         endereco.setEndereco("Rua Coelho Neto - Jd. três Marias");
         endereco.setCep("13320-520");
         endereco.setNumero(338);
