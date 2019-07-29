@@ -208,11 +208,13 @@ public class RepositoryTestHelper {
 				calendar.set(Calendar.HOUR_OF_DAY, 1);
 				calendar.set(Calendar.MINUTE, 15);
 				calendar.set(Calendar.SECOND, 0);
+				calendar.set(0, 0, 0);
 				horario.setHora(calendar.getTime());
 			} else {
 				calendar.set(Calendar.HOUR_OF_DAY, 2);
 				calendar.set(Calendar.MINUTE, 15);
 				calendar.set(Calendar.SECOND, 0);
+				calendar.set(0000, 00, 00);
 				horario.setHora(calendar.getTime());
 			}
 			if (retorna) {

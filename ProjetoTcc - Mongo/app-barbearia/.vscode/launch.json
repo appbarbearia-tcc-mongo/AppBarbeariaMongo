@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AppBarbeariaApplication<app-barbearia>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.com.appbarbearia.app.barbearia.AppBarbeariaApplication",
+            "projectName": "app-barbearia",
+            "args": ""
+        }
+    ]
+}
