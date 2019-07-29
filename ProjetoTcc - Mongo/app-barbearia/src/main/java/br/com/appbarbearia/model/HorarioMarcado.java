@@ -24,6 +24,20 @@ public class HorarioMarcado implements Serializable {
 	private Date cadastro;
 	private Date alterado;
 
+	public HorarioMarcado(){
+
+	}
+
+	private HorarioMarcado(HorarioMarcadoBuilder builder) {
+		this.id = builder.id;
+		this.horario = builder.horario;
+		this.barbeiro = builder.barbeiro;
+		this.cliente = builder.cliente;
+		this.dia = builder.dia;
+		this.cadastro = builder.cadastro;
+		this.alterado = builder.alterado;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -86,4 +100,59 @@ public class HorarioMarcado implements Serializable {
 				+ ", cliente=" + cliente + ", dia=" + dia + ", horario=" + horario + ", id=" + id + "]";
 	}
 
+	public static HorarioMarcadoBuilder builder() {
+		return new HorarioMarcadoBuilder();
+	}
+
+	public static final class HorarioMarcadoBuilder {
+		private String id;
+		private Horario horario;
+		private Barbeiro barbeiro;
+		private Cliente cliente;
+		private Date dia;
+		private Date cadastro;
+		private Date alterado;
+
+		private HorarioMarcadoBuilder() {
+		}
+
+		public HorarioMarcadoBuilder withId(String id) {
+			this.id = id;
+			return this;
+		}
+
+		public HorarioMarcadoBuilder withHorario(Horario horario) {
+			this.horario = horario;
+			return this;
+		}
+
+		public HorarioMarcadoBuilder withBarbeiro(Barbeiro barbeiro) {
+			this.barbeiro = barbeiro;
+			return this;
+		}
+
+		public HorarioMarcadoBuilder withCliente(Cliente cliente) {
+			this.cliente = cliente;
+			return this;
+		}
+
+		public HorarioMarcadoBuilder withDia(Date dia) {
+			this.dia = dia;
+			return this;
+		}
+
+		public HorarioMarcadoBuilder withCadastro(Date cadastro) {
+			this.cadastro = cadastro;
+			return this;
+		}
+
+		public HorarioMarcadoBuilder withAlterado(Date alterado) {
+			this.alterado = alterado;
+			return this;
+		}
+
+		public HorarioMarcado build() {
+			return new HorarioMarcado(this);
+		}
+	}
 }
