@@ -14,6 +14,7 @@ public class Horario implements Serializable {
 	@Id
 	private String id;
 	private String descricao;
+	private HoraDTO horaDTO;
 	private Date hora;
 	private Date cadastro;
 	private Date alterado;
@@ -32,6 +33,14 @@ public class Horario implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public HoraDTO getHoraDTO() {
+		return horaDTO;
+	}
+
+	public void setHoraDTO(HoraDTO horaDTO) {
+		this.horaDTO = horaDTO;
 	}
 
 	public Date getHora() {
