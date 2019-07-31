@@ -11,7 +11,10 @@ import br.com.appbarbearia.model.Cidade;
 import br.com.appbarbearia.model.Cliente;
 import br.com.appbarbearia.model.Endereco;
 import br.com.appbarbearia.model.Estados;
+import br.com.appbarbearia.model.Hora;
+import br.com.appbarbearia.model.HoraDTO;
 import br.com.appbarbearia.model.Horario;
+import br.com.appbarbearia.model.Minutos;
 
 @Component
 public class RepositoryTestHelper {
@@ -209,12 +212,20 @@ public class RepositoryTestHelper {
 				calendar.set(Calendar.MINUTE, 15);
 				calendar.set(Calendar.SECOND, 0);
 				calendar.set(0, 0, 0);
+				HoraDTO horaDTO = new HoraDTO();
+				horaDTO.setHora(Hora.UMA);
+				horaDTO.setMinutos(Minutos.QUINZE_MINUTOS);
+				horario.setHoraDTO(horaDTO);
 				horario.setHora(calendar.getTime());
 			} else {
 				calendar.set(Calendar.HOUR_OF_DAY, 2);
 				calendar.set(Calendar.MINUTE, 15);
 				calendar.set(Calendar.SECOND, 0);
-				calendar.set(0000, 00, 00);
+				HoraDTO horaDTO = new HoraDTO();
+				horaDTO.setHora(Hora.DUAS);
+				horaDTO.setMinutos(Minutos.QUINZE_MINUTOS);
+				horario.setHoraDTO(horaDTO);
+				calendar.set(1980, 1, 1);
 				horario.setHora(calendar.getTime());
 			}
 			if (retorna) {

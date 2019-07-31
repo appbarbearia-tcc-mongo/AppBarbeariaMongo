@@ -63,7 +63,6 @@ public class HorarioMarcadoControllerTest {
     @Autowired
     RepositoryTestHelper rth;
 
-    
     @Test
     public void test00_setUp(){
         rth.limpaBancoDeDados();
