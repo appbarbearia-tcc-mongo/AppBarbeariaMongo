@@ -3,6 +3,7 @@ package br.com.appbarbearia.model;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class HoraDTO {
 
@@ -28,12 +29,14 @@ public class HoraDTO {
     public static Calendar toCalendar(HoraDTO horaDTO) {
         Calendar calendar = Calendar.getInstance();
         int hora = horaDTO.getHora().getValue();
+        calendar.set(1980, 1, 1);
         calendar.set(Calendar.HOUR, hora);
         int minutos = horaDTO.getMinutos().getValue();
         calendar.set(Calendar.MINUTE, minutos);
         calendar.set(Calendar.SECOND, 00);
         return calendar;
     }
+
 
     public static HoraDTO toHoraDTO(Calendar calendar) {
         HoraDTO horaDTO = new HoraDTO();
@@ -46,4 +49,12 @@ public class HoraDTO {
         return horaDTO;
     }
 
+    public boolean equals(HoraDTO horaDTO){
+        if(!this.hora.equals(horaDTO.getHora())){
+            return false;
+        } else if(!this.minutos.equals(horaDTO.getMinutos())){
+            return false;
+        }
+        return true;
+    }
 }

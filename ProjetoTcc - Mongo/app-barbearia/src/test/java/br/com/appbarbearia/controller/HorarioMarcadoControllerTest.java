@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +19,10 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -82,7 +83,9 @@ public class HorarioMarcadoControllerTest {
         // Calendar calendar = Calendar.getInstance();
         // calendar.set(0, 0, 0, 1, 15);
         HorarioMarcado horarioMarcado = builder.withBarbeiro(barbeiro).withCliente(cliente).withHorario(horario).withDia(new Date()).build();
-        HttpEntity<Object> httpEntity = new HttpEntity<>(horarioMarcado);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Object> httpEntity = new HttpEntity<>(horarioMarcado, headers);
 
         ResponseEntity<HorarioMarcado> response = restTemplate.exchange(PORT + "/api/horarioMarcado", HttpMethod.POST,
          httpEntity, tipoRetorno);
@@ -105,6 +108,7 @@ public class HorarioMarcadoControllerTest {
         
         assertEquals(response.getStatusCode(), HttpStatus.OK);
         List<Horario> horarios = response.getBody(); 
+        assertFalse(horarios.isEmpty());
         Optional<Horario> optionalHorario = horarios.stream().filter(h -> h.getId() == opHorario.get().getId()).findAny();
         assertFalse(optionalHorario.isPresent());
     }

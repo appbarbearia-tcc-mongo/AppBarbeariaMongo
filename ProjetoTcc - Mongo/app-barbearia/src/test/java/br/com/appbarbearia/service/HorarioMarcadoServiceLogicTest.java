@@ -78,7 +78,9 @@ public class HorarioMarcadoServiceLogicTest {
         assertTrue(opBarbeiro.isPresent());
         Optional<Horario> opHorario = horarioRepository.findById(horario.getId());
         assertTrue(opHorario.isPresent());
+        
         List<Horario> horarios = horarioMarcadoService.listaHorariosDisponiveisBarbeiro(opBarbeiro.get(), new Date());
+        assertFalse(horarios.isEmpty());
         Optional<Horario> optionalHorario = horarios.stream().filter(h -> h.getId() == opHorario.get().getId()).findAny();
         assertFalse(optionalHorario.isPresent());
     }

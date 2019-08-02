@@ -3,6 +3,8 @@ package br.com.appbarbearia.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,8 +22,11 @@ public class HorarioMarcado implements Serializable {
 	private Barbeiro barbeiro;
 	@DBRef
 	private Cliente cliente;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:dd")
 	private Date dia;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:dd")
 	private Date cadastro;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:dd")
 	private Date alterado;
 
 	public HorarioMarcado(){

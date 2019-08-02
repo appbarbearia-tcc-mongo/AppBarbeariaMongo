@@ -1,6 +1,7 @@
 package br.com.appbarbearia.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -37,13 +38,18 @@ public class HorarioMarcadoService {
     }
 
     public List<Horario> listaHorariosDisponiveisBarbeiro(Barbeiro barbeiro, Date date) {
-        List<Horario> horarios = horarioRepository.findByHoraBetween(barbeiro.getBarbearia().getHorarioAbertura(), barbeiro.getBarbearia().getHorarioFechamento());
-        List<HorarioMarcado> horariosMarcados = horarioMarcadoRepository.findByDiaBetween(date, date);
+        // List<Horario> horarios = horarioRepository.findByHoraBetween(barbeiro.getBarbearia().getHorarioAbertura(), barbeiro.getBarbearia().getHorarioFechamento());
+        List<Horario> horarios = horarioRepository.findAll();
+        // TODO: CRIAR 2 CALENDARS, UM COMEÇA EM 00:00 E O OUTRO ACABA EM 23:59 DO MESMO DIA
+        Calendar inicio = Calendar.getInstance();
+        Calendar fim = Calendar.getInstance();
+        setUpDates(inicio, fim, date);
+        List<HorarioMarcado> horariosMarcados = horarioMarcadoRepository.findByDiaBetween(inicio.getTime(), fim.getTime());
         List<Horario> horariosDisponiveis = new ArrayList<>();
-        horariosMarcados.stream().forEach(hm -> {
-            Optional<Horario> opHorario = horarios.stream().filter(h -> h.equals(hm.getHorario())).findAny();
-            if (!opHorario.isPresent()) {
-                horariosDisponiveis.add(opHorario.get());
+        horarios.stream().forEach(h -> {
+            Optional<HorarioMarcado> opHorarioMarcado = horariosMarcados.stream().filter(hm -> hm.getHorario().getId().equals(h.getId())).findAny();
+            if (!opHorarioMarcado.isPresent()) {
+                horariosDisponiveis.add(h);
             }
         });
         if (horariosDisponiveis != null && !horariosDisponiveis.isEmpty()) {
@@ -51,5 +57,16 @@ public class HorarioMarcadoService {
         } else {
             return new ArrayList<>();
         }
+    }
+
+    private void setUpDates(Calendar inicio, Calendar fim, Date date){
+        inicio.setTime(date);
+        fim.setTime(date);
+        inicio.set(Calendar.HOUR, 0);
+        inicio.set(Calendar.MINUTE, 0);
+        inicio.set(Calendar.SECOND, 0);
+        fim.set(Calendar.HOUR, 23);
+        fim.set(Calendar.MINUTE, 59);
+        fim.set(Calendar.SECOND, 59);
     }
 }
