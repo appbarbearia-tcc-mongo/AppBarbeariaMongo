@@ -10,5 +10,4 @@ import br.com.appbarbearia.model.Barbearia;
 @Transactional
 public interface BarbeariaRepository extends PagingAndSortingRepository<Barbearia, String> {
 
-    
 }

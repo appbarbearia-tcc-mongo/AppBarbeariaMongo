@@ -310,7 +310,7 @@ public class RepositoryTestHelper {
 	}
 
 	public Barbearia criarBarbearia() {
-		Endereco endereco = criarEndereco();
+		// Endereco endereco = criarEndereco();
 
 		Barbearia barbeariaRetorno = new Barbearia();
 		boolean retorna = true;
@@ -325,7 +325,9 @@ public class RepositoryTestHelper {
 			Barbearia barbearia = new Barbearia();
 			barbearia.setNome(barbeariaInfo[idx++]);
 			barbearia.setDescricao(barbeariaInfo[idx++]);
-			barbearia.setEndereco(endereco);
+			barbearia.setCidade("São paulo");
+			barbearia.setEndereco("Rua da uva Nº 39 - ");
+			barbearia.setEstado(Estados.SP);
 			calendar.set(Calendar.HOUR_OF_DAY, 9);
 			calendar.set(Calendar.MINUTE, 0);
 			calendar.set(Calendar.SECOND, 0);
@@ -344,37 +346,37 @@ public class RepositoryTestHelper {
 		return barbeariaRetorno;
 	}
 
-	public Barbearia criarBarbearia(Endereco endereco) {
+	// public Barbearia criarBarbearia(Endereco endereco) {
 
-		Barbearia barbeariaRetorno = new Barbearia();
-		boolean retorna = true;
+	// 	Barbearia barbeariaRetorno = new Barbearia();
+	// 	boolean retorna = true;
 
-		String[][] barbeariaData = new String[][] {
-				{ "Barbearia do Juquinha", "A melhor barbearia da região... BY FAR", "1" },
-				{ "Barbearia do Zezinho", "Melhor do que a do Juquinha... BY THE WAY", "2" } };
+	// 	String[][] barbeariaData = new String[][] {
+	// 			{ "Barbearia do Juquinha", "A melhor barbearia da região... BY FAR", "1" },
+	// 			{ "Barbearia do Zezinho", "Melhor do que a do Juquinha... BY THE WAY", "2" } };
 
-		for (String[] barbeariaInfo : barbeariaData) {
-			int idx = 0;
-			Calendar calendar = Calendar.getInstance();
-			Barbearia barbearia = new Barbearia();
-			barbearia.setNome(barbeariaInfo[idx++]);
-			barbearia.setDescricao(barbeariaInfo[idx++]);
-			barbearia.setEndereco(endereco);
-			calendar.set(Calendar.HOUR_OF_DAY, 9);
-			calendar.set(Calendar.MINUTE, 0);
-			calendar.set(Calendar.SECOND, 0);
-			barbearia.setHorarioAbertura(calendar.getTime());
-			calendar.set(Calendar.HOUR_OF_DAY, 18);
-			calendar.set(Calendar.MINUTE, 0);
-			calendar.set(Calendar.SECOND, 0);
-			barbearia.setHorarioFechamento(calendar.getTime());
-			if (retorna) {
-				barbeariaRetorno = barbeariaRepository.save(barbearia);
-				retorna = false;
-			} else {
-				barbeariaRepository.save(barbearia);
-			}
-		}
-		return barbeariaRetorno;
-	}
+	// 	for (String[] barbeariaInfo : barbeariaData) {
+	// 		int idx = 0;
+	// 		Calendar calendar = Calendar.getInstance();
+	// 		Barbearia barbearia = new Barbearia();
+	// 		barbearia.setNome(barbeariaInfo[idx++]);
+	// 		barbearia.setDescricao(barbeariaInfo[idx++]);
+	// 		barbearia.setEndereco(endereco);
+	// 		calendar.set(Calendar.HOUR_OF_DAY, 9);
+	// 		calendar.set(Calendar.MINUTE, 0);
+	// 		calendar.set(Calendar.SECOND, 0);
+	// 		barbearia.setHorarioAbertura(calendar.getTime());
+	// 		calendar.set(Calendar.HOUR_OF_DAY, 18);
+	// 		calendar.set(Calendar.MINUTE, 0);
+	// 		calendar.set(Calendar.SECOND, 0);
+	// 		barbearia.setHorarioFechamento(calendar.getTime());
+	// 		if (retorna) {
+	// 			barbeariaRetorno = barbeariaRepository.save(barbearia);
+	// 			retorna = false;
+	// 		} else {
+	// 			barbeariaRepository.save(barbearia);
+	// 		}
+	// 	}
+	// 	return barbeariaRetorno;
+	// }
 }

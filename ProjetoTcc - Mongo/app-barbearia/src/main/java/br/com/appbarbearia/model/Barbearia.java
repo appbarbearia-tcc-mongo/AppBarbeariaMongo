@@ -19,8 +19,9 @@ public class Barbearia implements Serializable {
 	private String id;
 	private String nome;
 	private String descricao;
-	@DBRef
-	private Endereco endereco;
+	private String cidade;
+	private String endereco;
+	private Estados estado;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:dd")
 	private Date horarioAbertura;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:dd")
@@ -58,12 +59,28 @@ public class Barbearia implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Endereco getEndereco() {
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public Estados getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estados estado) {
+		this.estado = estado;
 	}
 
 	public Date getHorarioAbertura() {
