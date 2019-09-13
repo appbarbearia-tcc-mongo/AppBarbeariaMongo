@@ -32,8 +32,8 @@ public class PromocaoService {
         return promocaoRepository.findById(id);
     }
 
-    public void remove(Promocao servico) {
-        LOG.info("Removendo promoção: " + servico.toString());
-        promocaoRepository.delete(servico);
+    public void remove(Promocao promocao) {
+        LOG.info("Removendo promoção: " + promocao.toString());
+        promocaoRepository.delete(promocao);
     }
 }
