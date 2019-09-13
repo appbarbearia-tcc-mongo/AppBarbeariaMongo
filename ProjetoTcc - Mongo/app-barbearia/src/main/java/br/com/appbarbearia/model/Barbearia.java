@@ -22,9 +22,9 @@ public class Barbearia implements Serializable {
 	private String cidade;
 	private String endereco;
 	private Estados estado;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:ss")
 	private Date horarioAbertura;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:MM:ss")
 	private Date horarioFechamento;
 	private Date cadastro;
 	private Date alterado;
