@@ -53,7 +53,7 @@ public class HorarioMarcadoServiceLogicTest {
     @Test
     public void test00_setUp(){
         rth.limpaBancoDeDados();
-        cidade = rth.criarCidade();
+        // cidade = rth.criarCidade();
         // endereco = rth.criarEndereco(cidade);
         Barbearia barbearia = rth.criarBarbearia();
         barbeiro = rth.criarBarbeiro(cidade, barbearia);

@@ -125,7 +125,7 @@ public class RepositoryTestHelper {
 	}
 
 	public Barbeiro criarBarbeiro() {
-		Cidade cidade = criarCidade();
+		// Cidade cidade = criarCidade();
 		Barbearia barbearia = criarBarbearia();
 		Barbeiro barbeiroRetorno = new Barbeiro();
 		boolean retorna = true;
@@ -137,7 +137,7 @@ public class RepositoryTestHelper {
 			int idx = 0;
 			Calendar calendar = Calendar.getInstance();
 			Barbeiro barbeiro = new Barbeiro();
-			barbeiro.setCidade(cidade);
+			// barbeiro.setCidade(cidade);
 			barbeiro.setBarbearia(barbearia);
 			barbeiro.setNome(barbeiroInfo[idx++]);
 			barbeiro.setRg(barbeiroInfo[idx++]);
@@ -172,7 +172,7 @@ public class RepositoryTestHelper {
 			int idx = 0;
 			Calendar calendar = Calendar.getInstance();
 			Barbeiro barbeiro = new Barbeiro();
-			barbeiro.setCidade(cidade);
+			// barbeiro.setCidade(cidade);
 			barbeiro.setBarbearia(barbearia);
 			barbeiro.setNome(barbeiroInfo[idx++]);
 			barbeiro.setRg(barbeiroInfo[idx++]);
@@ -251,7 +251,6 @@ public class RepositoryTestHelper {
 			Calendar calendar = Calendar.getInstance();
 			int idx = 0;
 			Cliente cliente = new Cliente();
-			cliente.setCidade(cidade);
 			cliente.setNome(clienteInfo[idx++]);
 			cliente.setRg(clienteInfo[idx++]);
 			cliente.setCpf(clienteInfo[idx++]);
@@ -286,7 +285,7 @@ public class RepositoryTestHelper {
 			Calendar calendar = Calendar.getInstance();
 			int idx = 0;
 			Cliente cliente = new Cliente();
-			cliente.setCidade(cidade);
+			// cliente.setCidade(cidade);
 			cliente.setNome(clienteInfo[idx++]);
 			cliente.setRg(clienteInfo[idx++]);
 			cliente.setCpf(clienteInfo[idx++]);
