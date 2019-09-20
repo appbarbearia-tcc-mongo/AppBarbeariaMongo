@@ -20,6 +20,8 @@ public class Barbeiro implements Serializable {
 	private String id;
 	@DBRef
 	private Barbearia barbearia;
+	@DBRef
+	private Cidade cidade;
 	private String nome;
 	private String rg;
 	private String cpf;
@@ -50,6 +52,14 @@ public class Barbeiro implements Serializable {
 
 	public void setBarbearia(Barbearia barbearia) {
 		this.barbearia = barbearia;
+	}
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	public String getNome() {
@@ -135,7 +145,7 @@ public class Barbeiro implements Serializable {
 	@Override
 	public String toString() {
 		return "Barbeiro [alterado=" + alterado + ", cadastro=" + cadastro + ", celular=" + celular + ", cidade="
-				+ ", id=" + id + ", barbearia=" + barbearia + ", cpf=" + cpf + ", dataNascimento="
+				+ cidade + ", id=" + id + ", barbearia=" + barbearia + ", cpf=" + cpf + ", dataNascimento="
 				+ dataNascimento + ", foto=" + foto + ", horariosMarcados=" + horariosMarcados + ", nome=" + nome
 				+ ", rg=" + rg + ", telefone=" + telefone + "]";
 	}

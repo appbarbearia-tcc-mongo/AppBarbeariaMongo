@@ -1,7 +1,6 @@
 package br.com.appbarbearia.app.barbearia;
 
 import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -36,8 +35,7 @@ class ApplicationConfig extends AbstractMongoConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        MongoClientURI uri = new MongoClientURI("mongodb+srv://appbarbearia:Cheiademanias23@cluster0-etcan.gcp.mongodb.net/test?retryWrites=true&w=majority");
-        return new MongoClient(uri);
+        return new MongoClient("127.0.0.1", 27017);
   }
 
   @Bean

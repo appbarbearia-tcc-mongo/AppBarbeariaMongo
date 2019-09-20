@@ -16,6 +16,8 @@ public class Cliente implements Serializable {
 
 	@Id
 	private String id;
+	@DBRef
+	private Cidade cidade;
 	private String nome;
 	private String rg;
 	private String cpf;
@@ -36,6 +38,14 @@ public class Cliente implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	public String getNome() {
@@ -113,7 +123,7 @@ public class Cliente implements Serializable {
 	@Override
 	public String toString() {
 		return "Cliente [alterado=" + alterado + ", cadastro=" + cadastro + ", celular=" + celular + ", cidade="
-				+ ", id=" + id + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", foto="
+				+ cidade + ", id=" + id + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", foto="
 				+ foto + ", nome=" + nome + ", rg=" + rg + ", telefone=" + telefone + "]";
 	}
 

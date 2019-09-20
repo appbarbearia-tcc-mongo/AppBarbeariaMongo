@@ -12,6 +12,13 @@
         },
         {
             "type": "java",
+            "name": "Debug (Launch)-WebApplication<app-barbearia>",
+            "request": "launch",
+            "mainClass": "br.com.appbarbearia.WebApplication",
+            "projectName": "app-barbearia"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch)-AppBarbeariaApplication<app-barbearia>",
             "request": "launch",
             "mainClass": "br.com.appbarbearia.app.barbearia.AppBarbeariaApplication",
