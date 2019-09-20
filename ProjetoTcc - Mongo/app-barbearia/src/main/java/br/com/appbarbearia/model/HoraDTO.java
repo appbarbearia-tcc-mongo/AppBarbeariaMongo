@@ -3,7 +3,6 @@ package br.com.appbarbearia.model;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Objects;
 
 public class HoraDTO {
 
