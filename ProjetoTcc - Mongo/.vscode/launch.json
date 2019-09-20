@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-WebApplication<app-barbearia>",
+            "request": "launch",
+            "mainClass": "br.com.appbarbearia.WebApplication",
+            "projectName": "app-barbearia"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-AppBarbeariaApplication<app-barbearia>",
+            "request": "launch",
+            "mainClass": "br.com.appbarbearia.app.barbearia.AppBarbeariaApplication",
+            "projectName": "app-barbearia"
+        }
+    ]
+}
