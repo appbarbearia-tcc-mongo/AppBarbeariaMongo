@@ -7,7 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.appbarbearia.model.User;
 import br.com.appbarbearia.service.UserService;
@@ -29,34 +29,34 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+    public ModelAndView registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return new ModelAndView("registration");
         }
 
         userService.save(userForm);
 
         SecurityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/welcome";
+        return new ModelAndView("redirect:/welcome");
     }
 
     @GetMapping("/login")
-    public String login(Model model, String error, String logout) {
+    public ModelAndView login(Model model, String error, String logout) {
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
 
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
+        return new ModelAndView("login");
     }
 
     @GetMapping({"/", "/welcome"})
-    public String welcome(Model model) {
-        return "welcome";
+    public ModelAndView welcome(Model model) {
+        return new ModelAndView("welcome");
     }
 
     

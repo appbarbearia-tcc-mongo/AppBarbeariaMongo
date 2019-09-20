@@ -42,7 +42,7 @@ public class BarbeiroController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Barbeiro> getBarbeiroById(@PathVariable("id") String id) {
-        Optional<Barbeiro> opBarbeiro = barbeiroService.findById(id);
+        Optional<Barbeiro> opBarbeiro = barbeiroService.getBarbeiroById(id);
 
         if (!opBarbeiro.isPresent()) {
             return ResponseEntity.notFound().build();
@@ -53,13 +53,13 @@ public class BarbeiroController {
 
     @DeleteMapping("/id")
     public ResponseEntity<Barbeiro> deleteBarbeiro(@PathVariable("id") String id) {
-        Optional<Barbeiro> opBarbeiro = barbeiroService.findById(id);
+        Optional<Barbeiro> opBarbeiro = barbeiroService.getBarbeiroById(id);
 
         if (!opBarbeiro.isPresent()) {
             return ResponseEntity.badRequest().build();
         }
 
-        barbeiroService.delete(opBarbeiro.get());
+        barbeiroService.remove(opBarbeiro.get());
 
         return ResponseEntity.noContent().build();
     }

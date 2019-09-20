@@ -501,13 +501,6 @@ public class HorarioEngine {
         calendar.set(1980, 1, 1, 23, 45, 0);
         horarioRepository.save(horario);
 
-
-
-
-
-
-
     }
-
     
 }

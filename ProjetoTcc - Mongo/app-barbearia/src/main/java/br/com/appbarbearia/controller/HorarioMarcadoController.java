@@ -34,7 +34,7 @@ public class HorarioMarcadoController {
 
     @GetMapping("/horariosDisponiveis/{barbeiro}/{data}")
     public ResponseEntity<List<Horario>> listaHorariosDisponiveis(@PathVariable String barbeiro, @PathVariable long data){
-        Optional<Barbeiro> opBarbeiro = barbeiroService.findById(barbeiro);
+        Optional<Barbeiro> opBarbeiro = barbeiroService.getBarbeiroById(barbeiro);
         if(!opBarbeiro.isPresent()){
             return ResponseEntity.badRequest().build();    
         }
