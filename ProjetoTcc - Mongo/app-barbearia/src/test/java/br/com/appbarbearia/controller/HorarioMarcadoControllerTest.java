@@ -31,7 +31,6 @@ import br.com.appbarbearia.model.Barbearia;
 import br.com.appbarbearia.model.Barbeiro;
 import br.com.appbarbearia.model.Cidade;
 import br.com.appbarbearia.model.Cliente;
-import br.com.appbarbearia.model.Endereco;
 import br.com.appbarbearia.model.Horario;
 import br.com.appbarbearia.model.HorarioMarcado;
 import br.com.appbarbearia.model.HorarioMarcado.HorarioMarcadoBuilder;
@@ -47,7 +46,7 @@ public class HorarioMarcadoControllerTest {
     private static final String PORT = "http://localhost:8080";
 
     private static Cidade cidade = new Cidade();
-    private static Endereco endereco = new Endereco();
+    // private static Endereco endereco = new Endereco();
     private static Barbeiro barbeiro = new Barbeiro();
     private static Cliente cliente = new Cliente();
     private static Horario horario = new Horario();
