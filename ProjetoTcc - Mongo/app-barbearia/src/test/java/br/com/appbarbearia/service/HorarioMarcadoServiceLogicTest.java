@@ -56,8 +56,8 @@ public class HorarioMarcadoServiceLogicTest {
     public void test00_setUp(){
         rth.limpaBancoDeDados();
         cidade = rth.criarCidade();
-        endereco = rth.criarEndereco(cidade);
-        Barbearia barbearia = rth.criarBarbearia(endereco);
+        // endereco = rth.criarEndereco(cidade);
+        Barbearia barbearia = rth.criarBarbearia();
         barbeiro = rth.criarBarbeiro(cidade, barbearia);
         cliente = rth.criarCliente(cidade);
         horario = rth.criarHorario();

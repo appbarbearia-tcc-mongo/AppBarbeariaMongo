@@ -11,8 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private Long id;
-    @DBRef
+    private String id;
+    
     private String username;
 
     private String password;
@@ -23,11 +23,11 @@ public class User {
     @DBRef
     private Set<Role> roles;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

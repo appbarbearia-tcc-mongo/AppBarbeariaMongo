@@ -9,22 +9,29 @@
         },
         {
             "type": "java",
+            "name": "CodeLens (Launch) - AppBarbeariaApplication",
+            "request": "launch",
+            "mainClass": "br.com.appbarbearia.app.barbearia.AppBarbeariaApplication",
+            "projectName": "appbarbearia"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-AppBarbeariaApplication<app-barbearia>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "mainClass": "br.com.appbarbearia.app.barbearia.AppBarbeariaApplication",
             "projectName": "app-barbearia",
             "args": ""
         },
         {
             "type": "java",
-            "name": "Spring Boot-WebApplication<auth>",
+            "name": "Spring Boot-WebApplication<appbarbearia>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "mainClass": "br.com.appbarbearia.WebApplication",
-            "projectName": "auth",
+            "projectName": "appbarbearia",
             "args": ""
         }
     ]

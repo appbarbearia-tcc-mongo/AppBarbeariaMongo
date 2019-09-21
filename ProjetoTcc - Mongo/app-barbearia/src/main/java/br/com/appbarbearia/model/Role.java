@@ -1,25 +1,25 @@
 package br.com.appbarbearia.model;
 
-import java.util.Set;
+import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "role")
-public class Role {
-    @Id 
-    private Long id;
-    @DBRef
-    private String name;
-    @DBRef
-    private Set<User> users;
+public class Role  implements Serializable {
 
-    public Long getId() {
+    private static final long serialVersionUID = 4371686520001822470L;
+
+    @Id
+    private String id;
+
+    private String name;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -31,18 +31,9 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
     @Override
     public String toString() {
-        return "Roles [=" + name + "id =" + id + "users + " + users + "]";
+        return "Role [id=" + id + ", name=" + name + "]";
     }
-
     
 }

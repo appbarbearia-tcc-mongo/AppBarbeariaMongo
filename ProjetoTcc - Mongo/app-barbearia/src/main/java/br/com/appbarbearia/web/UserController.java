@@ -10,22 +10,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.appbarbearia.model.User;
-import br.com.appbarbearia.service.UserService;
-import br.com.appbarbearia.validator.UserValidator;
 import br.com.appbarbearia.service.SecurityService;
+import br.com.appbarbearia.service.UserServiceImpl;
+import br.com.appbarbearia.validator.UserValidator;
 
 @Controller
 public class UserController {
+
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
+    
     @Autowired
     private UserValidator userValidator;
 
     @GetMapping("/registration")
-    public String registration(Model model) {
+    public ModelAndView registration(Model model) {
         model.addAttribute("userForm", new User());
 
-        return "registration";
+        return new ModelAndView("webapp/registration_index").addObject("userForm", new User());
     }
 
     @PostMapping("/registration")
@@ -36,7 +38,7 @@ public class UserController {
             return new ModelAndView("registration");
         }
 
-        userService.save(userForm);
+        userServiceImpl.save(userForm);
 
         SecurityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
@@ -51,7 +53,7 @@ public class UserController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return new ModelAndView("login");
+        return new ModelAndView("/webapp/login");
     }
 
     @GetMapping({"/", "/welcome"})

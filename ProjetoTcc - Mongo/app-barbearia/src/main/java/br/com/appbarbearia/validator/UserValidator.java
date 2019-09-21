@@ -1,7 +1,7 @@
 package br.com.appbarbearia.validator;
 
 import br.com.appbarbearia.model.User;
-import br.com.appbarbearia.service.UserService;
+import br.com.appbarbearia.service.UserServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import org.springframework.validation.Validator;
 @Component
 public class UserValidator implements Validator {
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -27,7 +27,7 @@ public class UserValidator implements Validator {
         if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {
             errors.rejectValue("username", "Size.userForm.username");
         }
-        if (userService.findByUsername(user.getUsername()) != null) {
+        if (userServiceImpl.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.userForm.username");
         }
 
